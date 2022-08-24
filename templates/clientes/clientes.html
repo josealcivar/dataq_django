@@ -1,0 +1,18 @@
+{% extends 'adminlte/base.html' %} {% block content %}
+
+
+<h3>lista de clientes </h3>
+
+{% if clientes %}
+{% for clte in clientes  %}
+<li> {{ clte }}</li>
+{% endfor %}
+
+{% else %}
+<p> No existen clientes actualmente </p>
+{% endif %}
+
+{% block javascript %} {% include 'adminlte/lib/_scripts.html' %}
+
+
+{% endblock %} {% endblock %}

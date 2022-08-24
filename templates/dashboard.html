@@ -1,0 +1,407 @@
+{% extends 'adminlte/base.html' %} {% load static %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="info-box">
+        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Arriendo Prom Mensual</span>
+          <span class="info-box-number">
+            {{promedio_monto_mes}}
+            {% comment %} <small>%</small> {% endcomment %}
+          </span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="info-box mb-3">
+        <span class="info-box-icon bg-success elevation-1"><i class="fas fa-thumbs-up"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Cliente Mayor Monto</span>
+          <span class="info-box-number">{{ cliente_maximo.total }} <small>{{cliente_maximo.cliente_id__name}} {{cliente_maximo.cliente_id__lastname}}</small></span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+
+    <!-- fix for small devices only -->
+    <div class="clearfix hidden-md-up"></div>
+
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="info-box mb-3">
+        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-shopping-cart"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Cliente Menor Monto</span>
+          <span class="info-box-number">{{ cliente_min.total }} <small>{{cliente_maximo.cliente_id__name}} {{cliente_maximo.cliente_id__lastname}}</small></span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="info-box mb-3">
+        <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Dias Promedios </span>
+          <span class="info-box-number">2,000</span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+  </div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-header border-0">
+          <div class="d-flex justify-content-between">
+            <h3 class="card-title">Ventas</h3>
+            <a href="javascript:void(0);" >View Report</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="d-flex">
+             <p class="d-flex flex-column">
+              <span class="text-bold text-lg">${{max_monto_mes}}</span>
+              <span>Arriendos mensuales</span>
+            </p>
+             
+            {% comment %} <p class="ml-auto d-flex flex-column text-right">
+              <span class="text-success">
+                <i class="fas fa-arrow-up"></i> 33.1%
+              </span>
+              <span class="text-muted">Since last month</span>
+            </p> {% endcomment %}
+          </div>
+          <!-- /.d-flex -->
+
+          <div class="position-relative mb-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+            <canvas id="sales-chart" width="466" height="95" style="display: block; width: 466px; height: 95px;"  class="chartjs-render-monitor"></canvas>
+          </div>
+
+          <div class="d-flex flex-row justify-content-end">
+            <span class="mr-2">
+              <i class="fas fa-square text-primary"></i> This year
+            </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Empresas</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="chart-responsive"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                <canvas id="pieChart" height="95" width="190" style="display: block; width: 190px; height: 95px;" class="chartjs-render-monitor"></canvas>
+              </div>
+              <!-- ./chart-responsive -->
+            </div>
+            <!-- /.col -->
+            {% comment %} <div class="col-md-4">
+              <ul class="chart-legend clearfix">
+                {% comment %} <li><i class="far fa-circle text-danger"></i> Chrome</li>
+                <li><i class="far fa-circle text-success"></i> IE</li>
+                <li><i class="far fa-circle text-warning"></i> FireFox</li>
+                <li><i class="far fa-circle text-info"></i> Safari</li>
+                <li><i class="far fa-circle text-primary"></i> Opera</li>
+                <li><i class="far fa-circle text-secondary"></i> Navigator</li> {% endcomment %}
+
+
+                  {% comment %} {% if labels_empresas %}
+                  {% for nombre in labels_empresas  %}
+                  <li> <i class="far fa-circle text-success"></i> {{ nombre }}</li>
+                  {% endfor %}
+                  {% else %}
+                  <p> No existen empresas actualmente </p>
+                  {% endif %} {% endcomment %}
+
+              {% comment %} </ul> {% endcomment %}
+            {% comment %} </div>  {% endcomment %}
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer bg-white p-0">
+          <ul class="nav nav-pills flex-column">
+            {% for nombre in empresas  %}
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                {{ nombre.empresa_id__name }} 
+                <span class="float-right text-success">
+                  <i class="fas fa-arrow-up text-sm"></i>
+                {{ nombre.total}}  
+                </span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <!-- /.footer -->
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header border-0">
+            <h3 class="card-title">Products</h3>
+            <div class="card-tools">
+              <a href="#" class="btn btn-tool btn-sm">
+                <i class="fas fa-download"></i>
+              </a>
+              <a href="#" class="btn btn-tool btn-sm">
+                <i class="fas fa-bars"></i>
+              </a>
+            </div>
+          </div>
+          <div class="card-body table-responsive p-0">
+            <table class="table table-striped table-valign-middle">
+              <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Sales</th>
+                <th>More</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>
+                  <img src="https://appsrv1-147a1.kxcdn.com/adminlte/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                  Some Product
+                </td>
+                <td>$13 USD</td>
+                <td>
+                  <small class="text-success mr-1">
+                    <i class="fas fa-arrow-up"></i>
+                    12%
+                  </small>
+                  12,000 Sold
+                </td>
+                <td>
+                  <a href="#" class="text-muted">
+                    <i class="fas fa-search"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="https://appsrv1-147a1.kxcdn.com/adminlte/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                  Another Product
+                </td>
+                <td>$29 USD</td>
+                <td>
+                  <small class="text-warning mr-1">
+                    <i class="fas fa-arrow-down"></i>
+                    0.5%
+                  </small>
+                  123,234 Sold
+                </td>
+                <td>
+                  <a href="#" class="text-muted">
+                    <i class="fas fa-search"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="https://appsrv1-147a1.kxcdn.com/adminlte/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                  Amazing Product
+                </td>
+                <td>$1,230 USD</td>
+                <td>
+                  <small class="text-danger mr-1">
+                    <i class="fas fa-arrow-down"></i>
+                    3%
+                  </small>
+                  198 Sold
+                </td>
+                <td>
+                  <a href="#" class="text-muted">
+                    <i class="fas fa-search"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="https://appsrv1-147a1.kxcdn.com/adminlte/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                  Perfect Item
+                  <span class="badge bg-danger">NEW</span>
+                </td>
+                <td>$199 USD</td>
+                <td>
+                  <small class="text-success mr-1">
+                    <i class="fas fa-arrow-up"></i>
+                    63%
+                  </small>
+                  87 Sold
+                </td>
+                <td>
+                  <a href="#" class="text-muted">
+                    <i class="fas fa-search"></i>
+                  </a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+{% block javascript %} {% include 'adminlte/lib/_scripts.html' %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+<script src="https://appsrv1-147a1.kxcdn.com/adminlte/js/pages/dashboard2.js"></script>
+
+<script type="text/javascript"> 
+
+    //-------------
+    //- DONUT CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var donutChartCanvas = $('#pieChart').get(0).getContext('2d')
+    var donutData        = {
+       labels: {{ labels_empresas | safe }},
+      
+      datasets: [
+        {
+          data: {{ monto_empresas | safe }},
+          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+        }
+      ]
+    }
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    var donutChart = new Chart(donutChartCanvas, {
+      type: 'doughnut',
+      data: donutData,
+      options: donutOptions      
+    });
+
+
+
+        //-------------
+    //- linear CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+
+
+    $(function () {
+      'use strict'
+    
+      var ticksStyle = {
+        fontColor: '#495057',
+        fontStyle: 'bold'
+      }
+    
+      var mode      = 'index'
+      var intersect = true
+    
+      var $salesChart = $('#sales-chart')
+      var salesChart  = new Chart($salesChart, {
+        type   : 'bar',
+        data   : {
+          labels  : {{ labels_meses | safe }},
+          datasets: [
+            {
+              backgroundColor: '#007bff',
+              borderColor    : '#007bff',
+              data           : {{ datos_mensuales |safe }},
+            }
+          ]
+        },
+        options: {
+          maintainAspectRatio: false,
+          tooltips           : {
+            mode     : mode,
+            intersect: intersect
+          },
+          hover              : {
+            mode     : mode,
+            intersect: intersect
+          },
+          legend             : {
+            display: false
+          },
+          scales             : {
+            yAxes: [{
+              // display: false,
+              gridLines: {
+                display      : true,
+                lineWidth    : '4px',
+                color        : 'rgba(0, 0, 0, .2)',
+                zeroLineColor: 'transparent'
+              },
+              ticks    : $.extend({
+                beginAtZero: true,
+    
+                // Include a dollar sign in the ticks
+                callback: function (value, index, values) {
+                  if (value >= 1000) {
+                    value /= 1000
+                    value += 'k'
+                  }
+                  return '$' + value
+                }
+              }, ticksStyle)
+            }],
+            xAxes: [{
+              display  : true,
+              gridLines: {
+                display: false
+              },
+              ticks    : ticksStyle
+            }]
+          }
+        }
+      })
+ 
+    })
+
+
+
+</script>
+
+{% endblock %} {% endblock %}
+  

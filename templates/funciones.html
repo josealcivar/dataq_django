@@ -1,0 +1,19 @@
+
+{% extends 'adminlte/base.html' %} {% load static %} {% block content %}
+
+
+
+{% if clientes %}
+{% for clte in clientes  %}
+<p> {{ clte }}</p>
+{% endfor %}
+
+{% else %}
+<p> No existen clientes actualmente </p>
+{% endif %}
+
+{% block javascript %} {% include 'adminlte/lib/_scripts.html' %}
+
+
+{% endblock %} {% endblock %}
+  
