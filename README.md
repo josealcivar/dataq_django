@@ -22,10 +22,10 @@ python data.py
 y sus graficos. 
 
 
-![Alt text](/images/dashbard.jpg)
+![Alt text](https://github.com/josealcivar/dataq_django/blob/main/images/dsahboard.png)
 
 
 
 4) para ver el formulario de ingreso de Arriendo
 
-![Alt text](/images/insert.jpg)
+![Alt text](https://github.com/josealcivar/dataq_django/blob/main/images/insert.jpg)
