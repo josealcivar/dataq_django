@@ -22,3 +22,10 @@ python data.py
 y sus graficos. 
 
 
+![Alt text](/images/dashbard.jpg)
+
+
+
+4) para ver el formulario de ingreso de Arriendo
+
+![Alt text](/images/insert.jpg)
