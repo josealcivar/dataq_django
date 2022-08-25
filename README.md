@@ -28,4 +28,4 @@ y sus graficos.
 
 4) para ver el formulario de ingreso de Arriendo
 
-![Alt text](https://github.com/josealcivar/dataq_django/blob/main/images/insert.jpg)
+![Alt text](https://github.com/josealcivar/dataq_django/blob/main/images/insert.png)
