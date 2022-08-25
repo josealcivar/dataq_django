@@ -18,3 +18,7 @@ python data.py
 ```
 
 
+3) Como pantalla principal se muestra un dashboard con la información de Arriendos
+y sus graficos. 
+
+
