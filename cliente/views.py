@@ -35,9 +35,3 @@ def getClientSortByLastName(request):
         "titulo":"clientes ordenados por Apellidos"
     })
 
-'''
-Obtener los nombres de clientes ordenados decrecientemente 
-por la suma TOTAL de lo que ha gastado en arriendo de autos en cualquiera de las empresas disponibles.
-'''
-def getClientsSortByRentExpenses(request):
-    return 0

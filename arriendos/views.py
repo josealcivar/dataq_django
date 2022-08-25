@@ -12,6 +12,7 @@ import json
 
 from .models import Arriendos
 from cliente.models import Cliente
+from empresa.models import Empresa
 # Create your views here.
 
 
@@ -91,3 +92,10 @@ def dataDashboard(request, queryset=None):
 
 def listadoMontos():
     pass
+
+def CreateArriendo(request):
+    empresas = Empresa.objects.all()
+    return render(request, 'arriendos/createArriendo.html',{
+        'data':"resultado",
+        'empresas':empresas
+    })

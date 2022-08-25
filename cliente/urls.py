@@ -11,5 +11,7 @@ urlpatterns = [
     #ex: /clientes/5/details
     path('details/', views.getClientSortByLastName, name='clientes'),
 
-    path('details/lastname', views.getClientSortByLastName, name='lastname')
+    path('details/lastname', views.getClientSortByLastName, name='lastname'),
+
+  
 ] 

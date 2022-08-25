@@ -11,6 +11,6 @@ urlpatterns = [
     #ex: /clientes/5/details
     path('dashboard/', views.dataDashboard, name='dasboard'),
     path('listado/', views.listadoMontos, name='listado'),
-
+  path('crearArriendo/', views.CreateArriendo, name='crear')
     # path('details/lastname', views.getClientSortByLastName, name='lastname')
 ] 

@@ -1,0 +1,81 @@
+
+{% extends 'adminlte/base.html' %} {% load static %} {% block content %}
+
+<div class="container">
+    <div class="card card-primary">
+    <div class="card-body">
+<form action="#" method="post">
+
+    {% csrf_token %}
+    {% if empresas %} 
+
+    <fieldset>
+        <legend><h1>Nuevo Arriendo</h1></legend>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" class="form-control" id="name" value="{{ object.name }}" placeholder="Ingrese Nombre">
+              </div>
+       </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="lastname">Apellido:</label>
+                <input type="text" class="form-control" id="lastname" value="{{ object.lastname }}" placeholder="Ingrese Apellido">
+              </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label for="Empresas"> Empresa:</label>
+            <select class="custom-select">
+                {% for empresa in empresas  %}
+                <option value="{{ empresa.id}}">{{ empresa.name }}</option>
+              {% endfor %}
+              </select>
+
+            
+        </div>
+         
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="costo_diario">Costo diario:</label>
+                <input type="text" class="form-control" id="costo_diario" value="{{ object.costo_diario }}" placeholder="$200">
+              </div>
+ 
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="dias">Dias:</label>
+                <input type="text" class="form-control" id="dias" value="{{ object.dias }}" placeholder="5">
+              </div>
+ 
+        </div>
+    
+    
+    </div>
+
+    <div class="row no-print">
+        <div class="col-xs-12 col-md-6">
+
+          <button class="btn btn-primary" type="submit">Guardar</button>
+
+        </div>
+      </div>
+    </div>   
+  
+    
+</fieldset>
+{% else %}
+<h1>no hay registros de Vehiculos</h1> {%endif%}
+</form>
+</div>
+</div>
+
+{% block javascript %} {% include 'adminlte/lib/_scripts.html' %}
+
+
+{% endblock %} {% endblock %}
