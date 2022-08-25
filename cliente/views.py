@@ -20,7 +20,8 @@ Obtener lista con los clientes.
 def getClientIds(request):
     clientes = Cliente.objects.all()
     return render(request, "funciones.html", {
-        "clientes": clientes
+        "clientes": clientes,
+        "titulo":"lista de clientes"
     })
 
 
@@ -28,9 +29,10 @@ def getClientIds(request):
 Obtener lista con los ids de clientes ordenados por apellidos.
 '''
 def getClientSortByLastName(request):
-    ids_clientes = Cliente.objects.all().order_by('lastname').values()
+    ids_clientes = Cliente.objects.all().order_by('lastname')
     return render(request, "funciones.html", {
-        "clientes": ids_clientes
+        "clientes": ids_clientes,
+        "titulo":"clientes ordenados por Apellidos"
     })
 
 '''

@@ -35,7 +35,7 @@
 
             {% block nav_links %}
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i> 
                         <p>Dashboard</p>
                     </a>
@@ -58,7 +58,40 @@
                             <p>Arriendos</p>
                         </a>
                     </li>
-                
+                <li class="nav-item has-tree-view ">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-object-group"></i> <p>Funciones y Métodos</p>
+                        <p><i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview menu-open">
+                            <li class="nav-item">
+                                    <a href="/cliente/" class="nav-link">
+                                        <i class="nav-icon fas fa-circle"></i> Lista de Clientes
+                                    </a>
+                                </li>
+                        <li class="nav-item">
+                            <a href="/cliente/details/"  class="nav-link">
+                                <i class="nav-icon fas fa-user"></i> Lista Ids por Apellidos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/empresa/empresas" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i> Lista de empresas 
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/empresa/empresas/companies" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i> get Companies with rent
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i> Dictionary Key Empresas
+                            </a>
+                        </li>
+                    </ul>
+                </li>  
             {% endblock nav_links %}
             {% endblock nav_links_outer %}
             </ul>

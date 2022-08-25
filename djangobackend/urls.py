@@ -21,7 +21,7 @@ from arriendos import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.getDashboard),
+    path('', views.dataDashboard),
     path('cliente/', include("cliente.urls")),
     path('empresa/', include("empresa.urls")),
     path('arriendos/', include("arriendos.urls"))

@@ -7,9 +7,9 @@ app_name="clientes"
 urlpatterns = [
     
     #ex: /clientes/
-    path('', views.index, name='index'),
+    path('', views.getClientIds, name='index'),
     #ex: /clientes/5/details
-    path('details/', views.getClientIds, name='clientes'),
+    path('details/', views.getClientSortByLastName, name='clientes'),
 
     path('details/lastname', views.getClientSortByLastName, name='lastname')
 ] 
