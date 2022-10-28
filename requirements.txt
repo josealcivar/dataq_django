@@ -1,5 +1,4 @@
 asgiref==3.5.2
-python==3.9.1
 Django==4.1
 django-adminlte3==0.1.6
 django-filter==22.1
